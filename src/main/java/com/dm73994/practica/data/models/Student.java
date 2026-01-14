@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @Builder
 public class Student {
     private int id;
+    private String dni;
     private String name;
     private String lastname;
     private LocalDateTime birthDate;

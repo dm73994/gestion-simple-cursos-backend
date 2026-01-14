@@ -16,6 +16,7 @@ import java.time.LocalDateTime;
 @Entity
 public class NoteEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(nullable = false)
     private Double value;

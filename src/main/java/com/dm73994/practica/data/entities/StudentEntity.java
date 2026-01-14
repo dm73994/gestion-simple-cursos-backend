@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -17,7 +18,11 @@ import java.util.List;
 @Entity
 public class StudentEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(nullable = false, unique = true)
+    private String dni;
 
     @Column(nullable = false)
     private String name;
@@ -33,5 +38,6 @@ public class StudentEntity {
         cascade = {CascadeType.PERSIST, CascadeType.MERGE},
         fetch = FetchType.LAZY
     )
-    private List<NoteEntity> notes;
+    @Builder.Default
+    private List<NoteEntity> notes = new ArrayList<>();
 }
