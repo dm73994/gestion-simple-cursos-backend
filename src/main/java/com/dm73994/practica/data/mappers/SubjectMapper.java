@@ -15,7 +15,7 @@ public class SubjectMapper {
     }
 
     public static SubjectResDTO toResponse(SubjectEntity entity){
-        return (SubjectResDTO) SubjectResDTO.builder()
+        return SubjectResDTO.builder()
                 .id(entity.getId())
                 .name(entity.getName())
                 .code(entity.getCode())

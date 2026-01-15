@@ -25,7 +25,7 @@ public class NoteMapper {
     }
 
     public static NoteResDTO toResponse(NoteEntity entity){
-        return (NoteResDTO) NoteResDTO.builder()
+        return NoteResDTO.builder()
                 .id(entity.getId())
                 .studentId(entity.getStudent().getId())
                 .subjectId(entity.getSubject().getId())

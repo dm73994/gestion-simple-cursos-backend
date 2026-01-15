@@ -19,7 +19,6 @@ public class NoteService implements INoteService{
 
     @Override
     public void createNote(NoteReqDTO note) {
-
         noteRepository.saveNote(NoteMapper.toEntity(note));
     }
 

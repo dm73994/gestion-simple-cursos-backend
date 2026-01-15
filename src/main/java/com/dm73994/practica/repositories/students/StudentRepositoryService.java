@@ -1,9 +1,12 @@
 package com.dm73994.practica.repositories.students;
 
+import com.dm73994.practica.config.exceptions.NoSuchThingExist;
 import com.dm73994.practica.data.entities.StudentEntity;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class StudentRepositoryService implements IStudentRepositoryService{
@@ -28,7 +31,7 @@ public class StudentRepositoryService implements IStudentRepositoryService{
     @Override
     public StudentEntity findStudentById(Integer id) {
         return studentJpaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Student not found"));
+                .orElseThrow(() -> new NoSuchThingExist(String.format("[ERROR]: El estudiante con id %d no existe", id)));
     }
 
     @Override

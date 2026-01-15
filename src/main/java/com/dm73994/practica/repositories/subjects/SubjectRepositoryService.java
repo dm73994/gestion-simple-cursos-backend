@@ -1,10 +1,12 @@
 package com.dm73994.practica.repositories.subjects;
 
+import com.dm73994.practica.config.exceptions.NoSuchThingExist;
 import com.dm73994.practica.data.entities.SubjectEntity;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class SubjectRepositoryService implements ISubjectRepositoryService{
@@ -25,7 +27,7 @@ public class SubjectRepositoryService implements ISubjectRepositoryService{
     public SubjectEntity findSubjectById(Integer id) {
         return subjectRepository.findById(id)
                 .orElseThrow(() ->
-                        new EntityNotFoundException("Subject not found with id: " + id)
+                        new NoSuchThingExist(String.format("[ERROR]: La materia con id %d no existe", id))
                 );
     }
 
@@ -37,7 +39,7 @@ public class SubjectRepositoryService implements ISubjectRepositoryService{
     @Override
     public void deleteSubjectById(Integer id) {
         if (!subjectRepository.existsById(id)) {
-            throw new EntityNotFoundException("Subject not found with id: " + id);
+            throw new NoSuchThingExist(String.format("[ERROR]: La materia con id %d no existe", id));
         }
         subjectRepository.deleteById(id);
     }

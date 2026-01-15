@@ -17,7 +17,7 @@ public class StudentMapper {
     }
 
     public static StudentResDTO toResponse(StudentEntity entity){
-        return (StudentResDTO) StudentResDTO.builder()
+        return StudentResDTO.builder()
                 .id(entity.getId())
                 .dni(entity.getDni())
                 .name(entity.getName())

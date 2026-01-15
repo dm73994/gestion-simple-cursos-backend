@@ -1,6 +1,20 @@
 package com.dm73994.practica.data.dtos.res;
 
-import com.dm73994.practica.data.models.Student;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public class StudentResDTO extends Student {
+import java.time.LocalDate;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class StudentResDTO {
+    private Integer id;
+    private String dni;
+    private String name;
+    private String lastname;
+    private LocalDate birthDate;
 }
