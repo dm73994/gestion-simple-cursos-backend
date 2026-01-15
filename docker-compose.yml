@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  mysql-db:
+    image: mysql:8.4
+    container_name: mysql_prueba_tecnica
+    restart: always
+    environment:
+      MYSQL_DATABASE: practica_db
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  mysql_data:

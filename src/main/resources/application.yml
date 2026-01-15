@@ -3,7 +3,7 @@ spring:
     name: GestionSimpleCursos
 
   datasource:
-    url: jdbc:mysql://localhost:3306/${DB_NAME}?useSSL=false&serverTimezone=UTC
+    url: ${DB_URI}
     username: ${DB_USER}
     password: ${DB_PASS}
     driver-class-name: com.mysql.cj.jdbc.Driver
