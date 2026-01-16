@@ -31,8 +31,9 @@ public class SubjectEntity {
 
     @OneToMany(
         mappedBy = "subject",
-        cascade = {CascadeType.PERSIST, CascadeType.MERGE},
-        fetch = FetchType.LAZY
+        cascade = CascadeType.ALL,
+        fetch = FetchType.LAZY,
+            orphanRemoval = true
     )
     @Builder.Default
     private List<NoteEntity> notes = new ArrayList<>();
