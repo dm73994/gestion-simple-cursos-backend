@@ -30,6 +30,7 @@ public class NoteMapper {
                 .studentId(entity.getStudent().getId())
                 .subjectId(entity.getSubject().getId())
                 .value(entity.getValue())
+                .registerDate(entity.getRegisterDate())
                 .build();
     }
 }
